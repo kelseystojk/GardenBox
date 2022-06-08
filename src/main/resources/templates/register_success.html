@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration Success</title>
+    <style type="text/css">
+    span {
+        display: inline-block;
+        width: 200px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h2>Registration Succeeded!</h2>
+    <span>Length:</span><span th:text="${gardenBox.length}"></span><br/>
+    <span>Width:</span><span th:text="${gardenBox.width}"></span><br/>
+    <span>Depth:</span><span th:text="${gardenBox.depth}"></span><br/>
+    <span>Number of types of plants:</span><span th:text="${gardenBox.numTypePlants}"></span><br/>
+    <span>Number of total plants:</span><span th:text="${gardenBox.totalPlants}"></span><br/>
+</div>
+</body>
+</html>
