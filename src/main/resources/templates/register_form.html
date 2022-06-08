@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Garden Box Registration</title>
+    <style type="text/css">
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    input[type=text], input[type=password], select {
+        display: inline-block;
+        width: 200px;
+    }
+    input[type=radio] {
+        margin-left: 45px;
+    }
+    input[type=checkbox] {
+        margin-right: 190px;
+    }
+    button {
+        padding: 5px;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+<div align="center">
+    <h1>Garden Box Registration</h1>
+    <form action="#" th:action="@{/register}" method="post" th:object="${gardenBox}">
+        <label>Length in cm:</label>
+        <input type="text" th:field="*{length}" /><br/>
+
+        <label>Width in cm:</label>
+        <input type="text" th:field="*{width}" /><br/>
+
+        <label>Depth in cm:</label>
+        <input type="password" th:field="*{depth}" /><br/>
+
+        <label>Number of different types of plants:</label>
+        <input type="text" th:field="*{numTypePlants}" /><br/>
+
+        <label>Total number of plants:</label>
+        <input type="text" th:field="*{totalPlants}" /><br/>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>
