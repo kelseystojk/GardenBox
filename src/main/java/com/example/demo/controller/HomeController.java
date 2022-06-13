@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,8 +26,8 @@ public class HomeController {
         GardenBox gardenBox = new GardenBox();
         model.addAttribute("gardenBox", gardenBox);
 
-        //List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
-        //model.addAttribute("listProfession", listProfession);
+        List<String> listZone = Arrays.asList("0b", "1a", "1b", "2a", "2b", "3a", "3b", "4a", "4b", "5a", "5b", "6a", "6b", "7a");
+        model.addAttribute("listZone", listZone);
 
         return "register_form";
     }

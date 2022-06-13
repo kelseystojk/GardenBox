@@ -45,6 +45,20 @@
         <label>Total number of plants:</label>
         <input type="text" th:field="*{totalPlants}" /><br/>
 
+        <label>Climbers?</label>
+        <input type="checkbox" th:field="*{hasClimber}" /><br/>
+
+        <label>Creepers?</label>
+        <input type="checkbox" th:field="*{hasCreeper}" /><br/>
+
+        <label>Hardiness Zone:</label>
+        <select th:field="*{zone}">
+            <option th:each="z : ${listZone}" th:value="${z}" th:text="${z}" />
+        </select>
+        <br/>
+
+        <a th:href="@{https://www.plantmaps.com/interactive-ontario-plant-zone-hardiness-map.php}">Don't know your hardiness zone?</a><br/>
+
         <button type="submit">Register</button>
     </form>
 </div>

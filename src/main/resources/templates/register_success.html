@@ -17,8 +17,13 @@
     <span>Length:</span><span th:text="${gardenBox.length}"></span><br/>
     <span>Width:</span><span th:text="${gardenBox.width}"></span><br/>
     <span>Depth:</span><span th:text="${gardenBox.depth}"></span><br/>
+    <span>Area:</span><span th:text="${gardenBox.totalArea()}"></span><br/>
+    <span>Depth:</span><span th:text="${gardenBox.totalVolume()}"></span><br/>
     <span>Number of types of plants:</span><span th:text="${gardenBox.numTypePlants}"></span><br/>
     <span>Number of total plants:</span><span th:text="${gardenBox.totalPlants}"></span><br/>
+    <span>Contains climbers:</span><span th:text="${gardenBox.booleanToString}"></span><br/>
+    <span>Contains creepers:</span><span th:text="${gardenBox.booleanToString}"></span><br/>
+    <span>Hardiness Zone:</span><span th:text="${gardenBox.zone}"></span><br/>
 </div>
 </body>
 </html>
