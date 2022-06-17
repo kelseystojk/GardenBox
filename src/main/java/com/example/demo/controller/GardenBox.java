@@ -1,7 +1,9 @@
 package com.example.demo.controller;
 
-public class GardenBox {
+import com.example.demo.Plant;
+import java.util.ArrayList;
 
+public class GardenBox {
     private Integer length;
     private Integer width;
     private Integer depth;
@@ -10,6 +12,10 @@ public class GardenBox {
     private boolean hasCreeper;
     private boolean hasClimber;
     private String zone;
+
+    private ArrayList<Plant> plants;
+
+    public ArrayList<Plant> getPlants() { return plants; }
 
     public Integer getLength() {
         return length;
@@ -63,6 +69,8 @@ public class GardenBox {
 
     public void setZone(String zone) { this.zone = zone; }
 
+    public void setPlants(ArrayList<Plant> plants) { this.plants = plants;  }
+
     @java.lang.Override
     public java.lang.String toString() {
         return "GardenBox{" +
@@ -74,6 +82,7 @@ public class GardenBox {
                 ", hasClimber=" + hasClimber +
                 ", hasCreeper=" + hasCreeper +
                 ", zone=" + zone +
+                ", plants=" + plants +
                 '}';
     }
 

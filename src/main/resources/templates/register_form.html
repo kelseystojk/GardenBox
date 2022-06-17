@@ -59,6 +59,17 @@
 
         <a th:href="@{https://www.plantmaps.com/interactive-ontario-plant-zone-hardiness-map.php}">Don't know your hardiness zone?</a><br/>
 
+        <p>
+            <label>Plants in your garden box:
+                <input type="checkbox" name="listPlant"
+                       th:each="plant : ${listPlant}"
+                       th:text="${plant.name}"
+                       th:value="${plant.name}"
+                       th:field="*{plants}"
+                />
+            </label>
+        </p>
+
         <button type="submit">Register</button>
     </form>
 </div>
