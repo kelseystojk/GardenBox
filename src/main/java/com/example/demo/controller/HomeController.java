@@ -23,7 +23,7 @@ public class HomeController {
         return "message";
     }
 
-    @GetMapping("/register")
+    @PostMapping("/register")
     public String showForm(Model model) {
         GardenBox gardenBox = new GardenBox();
         model.addAttribute("gardenBox", gardenBox);
