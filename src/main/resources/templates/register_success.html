@@ -36,9 +36,13 @@
         </tr>
         <tr th:each="plant : ${gardenBox.plants}">
             <td><span th:text="${plant.name}"> Name </span></td>
+            <td><span th:text="${plant.quantity}"> Quantity </span></td>
         </tr>
         </tbody>
     </table>
+    <span>Will all plants fit into garden box by area?:</span><span th:text="${gardenBox.verifyAllPlantsWillFitByArea}"></span><br/>
+    <span>Will all plants fit into garden box by depth?:</span><span th:text="${gardenBox.verifyAllPlantsWillFitByDepth}"></span><br/>
+    <span>Will all plants fit into garden box by volume?:</span><span th:text="${gardenBox.verifyAllPlantsWillFitByVolume}"></span><br/>
 </div>
 </body>
 </html>

@@ -29,14 +29,14 @@ public class HomeController {
         model.addAttribute("gardenBox", gardenBox);
 
         List<String> listZone = Arrays.asList("0b", "1a", "1b", "2a", "2b", "3a", "3b", "4a", "4b", "5a", "5b", "6a", "6b", "7a");
-        List<Plant> listPlant = Arrays.asList(
+        /*List<Plant> listPlant = Arrays.asList(
                 new Plant("Tomato", "acidic", 0, "full", 15, 30, 450, "NA", true, false, false, false, false),
                 new Plant("Potato", "neutral-acidic", 1, "full", 60, 30, 1800, "4a", false, false, true, true, false),
                 new Plant("Giant Sunflower", "neutral", 1, "full", 60, 60, 3600, "2a", false, false, true, false, false),
                 new Plant("Kabocha", "neutral-acidic", 6, "full", 12, 60, 720, "3a", false, true, false, false, false)
-        );
+        );*/
         model.addAttribute("listZone", listZone);
-        model.addAttribute("listPlant", listPlant);
+        //model.addAttribute("listPlant", listPlant);
 
         return "register_form";
     }
@@ -46,4 +46,5 @@ public class HomeController {
         System.out.println(gardenBox);
         return "register_success";
     }
+
 }

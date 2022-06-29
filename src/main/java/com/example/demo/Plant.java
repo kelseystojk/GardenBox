@@ -6,6 +6,10 @@ public class Plant {
         return name;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+
     public String getSoilType() {
         return soilType;
     }
@@ -58,6 +62,10 @@ public class Plant {
         this.name = name;
     }
 
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     public void setSoilType(String soilType) {
         this.soilType = soilType;
     }
@@ -106,14 +114,17 @@ public class Plant {
         isSucculent = succulent;
     }
 
+    private String name;
+
     @Override
     public String toString() {
         return "Plant{" +
                 "name='" + name + '\'' +
+                ", quantity='" + quantity + '\'' +
                 '}';
     }
 
-    private String name;
+    private String quantity;
     private String soilType;        // alkaline, neutral, acidic
     private Integer daysBetweenWatering;      // heavy daily, daily, second-daily
     private String requiredSun;        // full, half, shade

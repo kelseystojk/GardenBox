@@ -61,11 +61,11 @@
 
         <p>
             <label>Plants in your garden box:
-                <input type="checkbox" name="listPlant"
-                       th:each="plant : ${listPlant}"
+                <input type="text" name="gardenBox.plants"
+                       th:each="plant, rowStat : ${gardenBox.plants}"
                        th:text="${plant.name}"
-                       th:value="${plant.name}"
-                       th:field="*{plants}"
+                       th:value="${plant.quantity}"
+                       th:field="${gardenBox.plants[__${rowStat.index}__].quantity}"
                 />
             </label>
         </p>

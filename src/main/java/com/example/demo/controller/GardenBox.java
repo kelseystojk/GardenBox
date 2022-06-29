@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.Plant;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GardenBox {
     private Integer length;
@@ -12,10 +14,18 @@ public class GardenBox {
     private boolean hasCreeper;
     private boolean hasClimber;
     private String zone;
+    private List<Plant> plants;
 
-    private ArrayList<Plant> plants;
+    public GardenBox() {
+        plants = Arrays.asList(
+                new Plant("Tomato", "acidic", 0, "full", 15, 30, 450, "NA", true, false, false, false, false),
+                new Plant("Potato", "neutral-acidic", 1, "full", 60, 30, 1800, "4a", false, false, true, true, false),
+                new Plant("Giant Sunflower", "neutral", 1, "full", 60, 60, 3600, "2a", false, false, true, false, false),
+                new Plant("Kabocha", "neutral-acidic", 6, "full", 12, 60, 720, "3a", false, true, false, false, false)
+        );
+    }
 
-    public ArrayList<Plant> getPlants() { return plants; }
+    public List<Plant> getPlants() { return plants; }
 
     public Integer getLength() {
         return length;
@@ -69,7 +79,7 @@ public class GardenBox {
 
     public void setZone(String zone) { this.zone = zone; }
 
-    public void setPlants(ArrayList<Plant> plants) { this.plants = plants;  }
+    public void setPlants(List<Plant> plants) { this.plants = plants;  }
 
     @java.lang.Override
     public java.lang.String toString() {
@@ -103,6 +113,63 @@ public class GardenBox {
             return "Yes";
         }
         return "No";
+    }
+
+    public boolean verifyAllPlantsWillFitByArea() {
+        Integer totalPlantArea = 0;
+        for (int i = 0; i < this.plants.size(); i++) {
+            if (Integer.parseInt(plants.get(i).getQuantity()) > 0) {
+                totalPlantArea += (plants.get(i).getRequiredArea() * Integer.parseInt(plants.get(i).getQuantity()));
+            }
+        }
+        Integer gardenBoxArea = 0;
+        gardenBoxArea = this.length*this.width;
+        System.out.println("Garden box area: " + gardenBoxArea + " and total plant area: " + totalPlantArea);
+        if (gardenBoxArea >= totalPlantArea) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean verifyAllPlantsWillFitByDepth() {
+        Integer maxPlantDepth = 0;
+        // first find the initial depth required for first plant in list (since some may have quantity of 0)
+        for (int i = 0; i < this.plants.size(); i++) {
+            if (Integer.parseInt(plants.get(i).getQuantity()) > 0) {
+                maxPlantDepth = plants.get(i).getRequiredDepth();
+                break;
+            }
+        }
+        //todo>>> this checks the same plant again, can it be more efficient?
+        for (int i = 0; i < this.plants.size(); i++) {
+            if (Integer.parseInt(plants.get(i).getQuantity()) > 0) {
+                if (plants.get(i).getRequiredDepth() > maxPlantDepth) {
+                    maxPlantDepth = plants.get(i).getRequiredDepth();
+                }
+            }
+        }
+        System.out.println("Garden box depth: " + this.getDepth() + " and max plant depth: " + maxPlantDepth);
+        if (this.getDepth() >= maxPlantDepth) {
+            return true;
+        }
+        return false;
+    }
+
+    //this method is actually a bit redundant but may help the user
+    public boolean verifyAllPlantsWillFitByVolume() {
+        Integer totalPlantVol = 0;
+        for (int i = 0; i < this.plants.size(); i++) {
+            if (Integer.parseInt(plants.get(i).getQuantity()) > 0) {
+                totalPlantVol += (plants.get(i).getRequiredVolume() * Integer.parseInt(plants.get(i).getQuantity()));
+            }
+        }
+        Integer gardenBoxVol = 0;
+        gardenBoxVol = this.length*this.width*this.depth;
+        System.out.println("Garden box volume: " + gardenBoxVol + " and total plant area: " + totalPlantVol);
+        if (gardenBoxVol >= totalPlantVol) {
+            return true;
+        }
+        return false;
     }
 
 }
