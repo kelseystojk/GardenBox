@@ -59,6 +59,22 @@
 
         <a th:href="@{https://www.plantmaps.com/interactive-ontario-plant-zone-hardiness-map.php}">Don't know your hardiness zone?</a><br/>
 
+        <label>How much of your garden box is full sun?</label>
+        <select th:field="*{fullSunExposure}">
+            <option th:each="exposure : ${listExposures}"
+                    th:value="${exposure}"
+                    th:text="${exposure}">
+            </option>
+        </select>
+
+        <label>How much of your garden box is full shade?</label>
+        <select th:field="*{fullShadeExposure}">
+            <option th:each="exposure : ${listExposures}"
+                    th:value="${exposure}"
+                    th:text="${exposure}">
+            </option>
+        </select>
+
         <p>
             <label>Plants in your garden box:
                 <input type="text" name="gardenBox.plants"

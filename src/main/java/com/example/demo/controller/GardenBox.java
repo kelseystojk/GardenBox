@@ -16,6 +16,8 @@ public class GardenBox {
     private String zone;
     private List<Plant> plants;
 
+    private String fullSunExposure;
+    private String fullShadeExposure;
     public GardenBox() {
         plants = Arrays.asList(
                 new Plant("Tomato", "acidic", 0, "full", 15, 30, 450, "NA", true, false, false, false, false),
@@ -53,6 +55,14 @@ public class GardenBox {
 
     public String getZone() { return zone; }
 
+    public String getFullSunExposure() {
+        return fullSunExposure;
+    }
+
+    public String getFullShadeExposure() {
+        return fullShadeExposure;
+    }
+
     public void setLength(Integer length) {
         this.length = length;
     }
@@ -80,6 +90,14 @@ public class GardenBox {
     public void setZone(String zone) { this.zone = zone; }
 
     public void setPlants(List<Plant> plants) { this.plants = plants;  }
+
+    public void setFullSunExposure(String fullSunExposure) {
+        this.fullSunExposure = fullSunExposure;
+    }
+
+    public void setFullShadeExposure(String fullShadeExposure) {
+        this.fullShadeExposure = fullShadeExposure;
+    }
 
     @java.lang.Override
     public java.lang.String toString() {
